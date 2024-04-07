@@ -23,15 +23,17 @@ concurrency:
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: ${{ matrix.os }}
     steps:
+      - uses: mxcl/xcodebuild@v1
+        with:
+          action: none
+      - run: build
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
-      - name: Generate Files
-        run: swift build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
