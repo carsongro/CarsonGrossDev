@@ -25,19 +25,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: List Xcode installations
-      run: sudo ls -1 /Applications | grep "Xcode"
     - name: Select Xcode
       run: sudo xcode-select -s "/Applications/Xcode_15.2.app"
     - name: Build
-      run: swift build
+      run: swift run IgniteCLI build
     - name: Checkout
       uses: actions/checkout@v4
     - name: Setup Pages
       id: pages
       uses: actions/configure-pages@v5
-    - name: List Files in Directory
-      run: sudo ls
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
