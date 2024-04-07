@@ -23,11 +23,11 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
+    runs-on: macos-latest
     steps:
       - uses: mxcl/xcodebuild@v1
         with:
-          action: none
+          action: build
       - run: build
       - name: Checkout
         uses: actions/checkout@v4
