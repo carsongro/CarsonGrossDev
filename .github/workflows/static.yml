@@ -31,7 +31,7 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
       - name: Generate Files
-        run: swift build
+        run: swift run IgniteCLI build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
