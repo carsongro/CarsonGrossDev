@@ -51,7 +51,7 @@ And this code is perfectly fine, but if there are multiple views throughout the 
 I wanted to make something that felt relatively familiar, so I started with defining a `Throwing View` in a very similar way as `ContentUnavailableView`.
 
 ```swift
-public struct ThrowingView<Content, Label, Description>: View where Content: View, Label : View, Description : View {
+public struct ThrowingView&lt;Content, Label, Description>: View where Content: View, Label : View, Description : View {
     @ViewBuilder private let content: Content
     @ViewBuilder private let label: () -> Label
     @ViewBuilder private let description: () -> Description
@@ -137,7 +137,7 @@ var body: some View {
 This is nice, and we can also make it a `ViewModifer` too
 
 ```swift
-public struct ThrowingViewModifier<Label, Description>: ViewModifier where Label : View, Description : View {
+public struct ThrowingViewModifier&lt;Label, Description>: ViewModifier where Label : View, Description : View {
     @ViewBuilder private let label: () -> Label
     @ViewBuilder private let description: () -> Description
     @ViewBuilder private let operation: @Sendable () async throws -> Void
@@ -166,7 +166,7 @@ public struct ThrowingViewModifier<Label, Description>: ViewModifier where Label
 }
 
 extension View {
-    public func throwingView<Label, Description>(
+    public func throwingView&lt;Label, Description>(
         @ViewBuilder label: @escaping () -> Label,
         @ViewBuilder description: @escaping () -> Description = { EmptyView() },
         operation: @escaping @Sendable () async throws -> Void
@@ -198,7 +198,7 @@ A little weird at the call sight, but it works!
 It may need to be tweaked a bit to suit other projects or needs, especially if you wish to have multiple actions besides just a single retry button.
 
 ```swift
-public struct ThrowingView<Content, Label, Description>: View where Content: View, Label : View, Description : View {
+public struct ThrowingView&lt;Content, Label, Description>: View where Content: View, Label : View, Description : View {
     @ViewBuilder private let content: Content
     @ViewBuilder private let label: () -> Label
     @ViewBuilder private let description: () -> Description
@@ -257,7 +257,7 @@ public struct ThrowingView<Content, Label, Description>: View where Content: Vie
     }
 }
 
-public struct ThrowingViewModifier<Label, Description>: ViewModifier where Label : View, Description : View {
+public struct ThrowingViewModifier&lt;Label, Description>: ViewModifier where Label : View, Description : View {
     @ViewBuilder private let label: () -> Label
     @ViewBuilder private let description: () -> Description
     @ViewBuilder private let operation: @Sendable () async throws -> Void
@@ -294,7 +294,7 @@ public struct ThrowingViewModifier<Label, Description>: ViewModifier where Label
 }
 
 extension View {
-    public func throwingView<Label, Description>(
+    public func throwingView&lt;Label, Description>(
         @ViewBuilder label: @escaping () -> Label,
         @ViewBuilder description: @escaping () -> Description = { EmptyView() },
         operation: @escaping @Sendable () async throws -> Void

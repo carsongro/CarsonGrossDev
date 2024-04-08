@@ -12,13 +12,13 @@ import Ignite
 struct NavBar: Component {
     func body(context: PublishingContext) -> [any PageElement] {
         NavigationBar(logo: Text("Carson Gross Dev").font(.title1)) {
-            Link("GitHub", target: "https://github.com/carsongro")
-            
             Link("About", target: About())
 
             Dropdown("Carson Gross") {
+                Link("GitHub", target: "https://github.com/carsongro")
                 Link("Mastodon", target: "https://mastodon.social/@carsongross")
                 Link("Twitter", target: "https://twitter.com/carsongrossdev")
+                Link("LinkedIn", target: "https://www.linkedin.com/in/carsongross/")
             }
         }
         .navigationItemAlignment(.trailing)
