@@ -17,31 +17,31 @@ A common pattern that I've come across when building things in SwiftUI is when a
 One way to approach this solution is to have some sort of boolean property capable of updating a view (Typically `@State` or a property in an `@Observable` object) that can be set to true to show the error state, then I make a network request and if the request fail, in the `catch` block I can set the property to true and show some sort of error view. In iOS 17 `ContentUnavailableView` make this process very nice. It may look something like this:
 
 ```swift
-    @State private var showingErrorState = false
-    
-    var body: some View {
-        if showingErrorState {
-            ContentUnavailableView {
-                Label("No Data", systemImage: "exclamationmark.circle.fill")
-            } actions: {
-                Button("Refresh", action: fetchData)
-            }
-        } else {
-            SomeView()
-                .onAppear(perform: fetchData)
+@State private var showingErrorState = false
+
+var body: some View {
+    if showingErrorState {
+        ContentUnavailableView {
+            Label("No Data", systemImage: "exclamationmark.circle.fill")
+        } actions: {
+            Button("Refresh", action: fetchData)
+        }
+    } else {
+        SomeView()
+            .onAppear(perform: fetchData)
+    }
+}
+
+func fetchData() {
+    Task {
+        do {
+            try await makeNetworkRequest()
+            showingErrorState = false
+        } catch {
+            showingErrorState = true
         }
     }
-    
-    func fetchData() {
-        Task {
-            do {
-                try await makeNetworkRequest()
-                showingErrorState = false
-            } catch {
-                showingErrorState = true
-            }
-        }
-    }
+}
 ```
 
 And this code is perfectly fine, but if there are multiple views throughout the app that can have a view that doesn't display data because of a failed network request, rewriting the `@State` property and the `do` `catch` can get a bit repetitive. For me personally when something is repetitive like this I'm more likely not to do it, but handling error states is very important to the user experience so I made an easy to use solution I don't have an excuse to skip it.
@@ -84,54 +84,54 @@ But there are some differences, mainly the addition of `content` and `operation`
 as a property and then modify the content of the body
 
 ```swift
-    public var body: some View {
-        if showErrorState {
-            ContentUnavailableView(label: label, description: description) {
-                Button("Retry", action: doOperation)
-                    .padding(6)
-                    .foregroundStyle(.secondary)
-                    .background(
-                        RoundedRectangle(cornerRadius: 4)
-                            .stroke(.secondary)
-                    )
-            }
-        } else {
-            content
-                .onAppear(perform: doOperation)
+public var body: some View {
+    if showErrorState {
+        ContentUnavailableView(label: label, description: description) {
+            Button("Retry", action: doOperation)
+                .padding(6)
+                .foregroundStyle(.secondary)
+                .background(
+                    RoundedRectangle(cornerRadius: 4)
+                        .stroke(.secondary)
+                )
         }
+    } else {
+        content
+            .onAppear(perform: doOperation)
     }
+}
 ```
 
 and finally we need to define the function that does the work
 
 ```swift
-    private func doOperation() {
-        Task {
-            do {
-                try await operation()
-                showErrorState = false
-            } catch {
-                print(error.localizedDescription)
-                showErrorState = true
-            }
+private func doOperation() {
+    Task {
+        do {
+            try await operation()
+            showErrorState = false
+        } catch {
+            print(error.localizedDescription)
+            showErrorState = true
         }
     }
+}
 ```
 
 Now we can use it in our other views! Our original example now looks like this:
 
 ```swift
-    var body: some View {
-        ThrowingView {
-            SomeView()
-        } label: {
-            Text("Error")
-        } description: {
-            Text("There was an error loading this page")
-        } operation: {
-            try await makeNetworkRequest()
-        }
+var body: some View {
+    ThrowingView {
+        SomeView()
+    } label: {
+        Text("Error")
+    } description: {
+        Text("There was an error loading this page")
+    } operation: {
+        try await makeNetworkRequest()
     }
+}
 ```
 
 This is nice, and we can also make it a `ViewModifer` too
@@ -179,16 +179,16 @@ extension View {
 So now we could also use it like this
 
 ```swift
-    var body: some View {
-        SomeView()
-            .throwingView {
-                Text("Error")
-            } description: {
-                Text("There was an error loading this page")
-            } operation: {
-                try await makeNetworkRequest()
-            }
-    }
+var body: some View {
+    SomeView()
+        .throwingView {
+            Text("Error")
+        } description: {
+            Text("There was an error loading this page")
+        } operation: {
+            try await makeNetworkRequest()
+        }
+}
 ```
 
 A little weird at the call sight, but it works!
