@@ -17,7 +17,7 @@ struct IgniteWebsite {
 struct MySite: Site {
     var name = "Carson Gross Dev"
     var baseTitle = "Carson Gross"
-    var url = URL("https://carsongro.github.io/CarsonGrossDev")
+    var url = URL("https://carsongrossdev.com")
     var builtInIconsEnabled = true
 
     var author = "Carson Gross"
