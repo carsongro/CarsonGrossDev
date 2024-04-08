@@ -28,7 +28,9 @@ jobs:
     - name: Select Xcode
       run: sudo xcode-select -s "/Applications/Xcode_15.2.app"
     - name: Build
-      run: sudo swift run
+      run: sudo swift run IgniteCLI build
+    - name: Clean Up
+      run: sudo rmdir .build/artifacts
     - name: List Files
       run: sudo ls
     - name: Checkout
