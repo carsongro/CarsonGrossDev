@@ -44,11 +44,11 @@ func fetchData() {
 }
 ```
 
-And this code is perfectly fine, but if there are multiple views throughout the app that can have a view that doesn't display data because of a failed network request, rewriting the `@State` property and the `do` `catch` can get a bit repetitive. For me personally when something is repetitive like this I'm more likely not to do it, but handling error states is very important to the user experience so I made an easy to use solution I don't have an excuse to skip it.
+And this code is perfectly fine, but if there are multiple views throughout the app that can have a view that doesn't display data because of a failed network request, rewriting the `@State` property and the `do` `catch` can get a bit repetitive. For me personally when something is repetitive like this I'm more likely not to do it, but handling error states is very important to the user experience so I made an easy to use solution and now I don't have an excuse to skip it.
 
 ### Solution
 
-I wanted to make something that felt relatively familiar, so I started with defining a `Throwing View` in a very similar way as `ContentUnavailableView`.
+I wanted to make something that felt relatively familiar, so I started with defining a `ThrowingView` in a very similar way as `ContentUnavailableView`.
 
 ```swift
 public struct ThrowingView&lt;Content, Label, Description>: View where Content: View, Label : View, Description : View {
