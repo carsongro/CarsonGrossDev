@@ -17,10 +17,10 @@ struct IgniteWebsite {
 struct MySite: Site {
     var name = "Carson Gross Dev"
     var baseTitle = "Carson Gross"
-    var url = URL("https://www.example.com")
+    var url = URL("https://carsongro.github.io/CarsonGrossDev")
     var builtInIconsEnabled = true
 
-    var author = "Carosn Gross"
+    var author = "Carson Gross"
 
     var homePage = Home()
     var theme = MyTheme()
