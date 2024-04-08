@@ -30,7 +30,7 @@ jobs:
     - name: Build
       run: sudo swift run IgniteCLI build
     - name: Cleanup old checkout  
-      run: chmod +w -R ${GITHUB_WORKSPACE}; rm -rf ${GITHUB_WORKSPACE}/*;
+      run: chmod +w ${GITHUB_WORKSPACE}; rm -rf ${GITHUB_WORKSPACE}/*;
     - name: Check out repository
       uses: actions/checkout@v4
     - name: List Files
