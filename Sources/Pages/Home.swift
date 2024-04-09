@@ -14,7 +14,7 @@ struct Home: StaticPage {
         Section {
             for item in context.allContent {
                 ContentPreview(for: item)
-                    .width(5)
+                    .width(4)
                     .margin(.bottom)
             }
         }

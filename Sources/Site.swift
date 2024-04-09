@@ -20,7 +20,7 @@ struct MySite: Site {
     var url = URL("https://carsongrossdev.com")
     
     var builtInIconsEnabled = true
-    var syntaxHighlighters = [SyntaxHighlighter.swift, .python, .ruby]
+    var syntaxHighlighters = [SyntaxHighlighter.swift]
     var robotsConfiguration = Robots()
     var author = "Carson Gross"
 

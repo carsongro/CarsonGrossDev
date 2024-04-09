@@ -11,7 +11,7 @@ import Ignite
 /// An example navigation bar, demonstrating how to create reusable components.
 struct NavBar: Component {
     func body(context: PublishingContext) -> [any PageElement] {
-        NavigationBar(logo: Text("Carson Gross Dev").font(.title1)) {
+        NavigationBar(logo: Text("Cool Dev").font(.title1)) {
             Link("About", target: About())
 
             Dropdown("Carson Gross") {
