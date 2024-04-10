@@ -1,7 +1,7 @@
 ---
 layout: CustomPost
 tags: Swift, Post
-image: /images/photos/errorstate.png
+image: /images/photos/errorstate.jpg
 lastModified: 2024-04-08
 ---
 # Simple Retry Error State View For SwiftUI

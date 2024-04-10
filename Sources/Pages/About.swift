@@ -15,8 +15,24 @@ struct About: StaticPage {
         Text("About me")
             .font(.title1)
         
-        Text("I love to build things! Most of my experience and personal projects are iOS or Swift related, but I'm always exploring new languages and types of development.")
-            .font(.lead)
+        Section {
+            Image("/images/project/SSC2024_Social_Static_16x9.jpg", description: "Swift Student Challenge 2024 Winner")
+                .resizable()
+                .frame(maxHeight: 300)
+                .horizontalAlignment(.center)
+            
+            Image("/images/project/header.jpg", description: "Swift Student Challenge 2024 Winner")
+                .resizable()
+                .frame(maxHeight: 300)
+                .horizontalAlignment(.center)
+        }
+        
+        Text{
+            "I love to build things! I won the Apple Swift Student Challenge in 2024, and most of my "
+            Link("professional experience", target: URL("https://www.linkedin.com/in/carsongross/"))
+             " and personal projects are iOS or Swift related, but I'm always exploring new languages and types of development."
+         }
+        .font(.lead)
         
         List {
             Link("GitHub", target: "https://github.com/carsongro")

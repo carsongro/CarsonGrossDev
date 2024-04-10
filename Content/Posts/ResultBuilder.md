@@ -1,7 +1,7 @@
 ---
 layout: CustomPost
 tags: Swift, Post
-image: images/photos/resultbuilder.png
+image: images/photos/Swift_logo_color.svg
 lastModified: 2024-04-08
 ---
 # Using @resultBuilder to Interface SwiftUI with UIKit

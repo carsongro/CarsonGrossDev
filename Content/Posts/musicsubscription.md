@@ -1,7 +1,7 @@
 ---
 layout: CustomPost
 tags: Swift, Post
-image: /images/photos/musickit.png
+image: /images/photos/musickit.jpg
 lastModified: 2024-04-08
 ---
 # Offering MusicKit Subscriptions
