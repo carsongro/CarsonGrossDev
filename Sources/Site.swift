@@ -31,6 +31,7 @@ struct MySite: Site {
     var pages: [any StaticPage] {
         CoolStuff()
         About()
+        Home()
     }
     
     var layouts: [any ContentPage] {

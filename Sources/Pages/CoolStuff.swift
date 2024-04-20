@@ -12,11 +12,11 @@ struct CoolStuff: StaticPage {
     var title = "Cool Stuff"
 
     func body(context: PublishingContext) -> [BlockElement] {
-        Text("Here are some fun things I've made")
+        Text("Here are some fun projects I've made")
             .font(.title1)
         
         Text {
-            "This is only a few things, to check out more of what I've build, go to my "
+            "This is only a few projects, to check out more of what I've build, go to my "
             Link("GitHub!", target: URL("https://github.com/carsongro"))
         }
         .font(.lead)

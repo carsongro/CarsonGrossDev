@@ -28,9 +28,7 @@ struct About: StaticPage {
         }
         
         Text{
-            "I love to build things! I won the Apple Swift Student Challenge in 2024, and most of my "
-            Link("professional experience", target: URL("https://www.linkedin.com/in/carsongross/"))
-             " and personal projects are iOS or Swift related, but I'm always exploring new languages and types of development."
+            "I love to build stuff! I've been using Swift and building for Apple platforms for 2+ years, and I won the Apple Swift Student Challenge in 2024! My professional experience and personal projects are Swift and iOS related, but I'm always exploring new things."
          }
         .font(.lead)
         

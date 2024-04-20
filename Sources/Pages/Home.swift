@@ -8,33 +8,15 @@ struct Home: StaticPage {
         Text("Welcome!")
             .font(.title1)
         
-        Text {
-            "Check out some "
-            Link("cool projects", target: CoolStuff())
-            ", Or stay here to see posts."
-        }
-        
         Text("Posts")
             .font(.title3)
         
         Section {
-            for item in context.content(tagged: "Post") {
+            for item in context.content(tagged: "Post").sorted(by: { $0.date }, order: .forward) {
                 ContentPreview(for: item)
                     .width(4)
                     .margin(.bottom)
             }
         }
-        
-        Text("Projects")
-            .font(.title3)
-        
-        Section {
-            for item in context.content(tagged: "Project") {
-                ContentPreview(for: item)
-                    .width(4)
-                    .margin(.bottom)
-            }
-        }
-        .margin(.bottom, .extraLarge)
     }
 }

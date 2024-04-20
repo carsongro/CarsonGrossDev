@@ -12,7 +12,9 @@ import Ignite
 struct NavBar: Component {
     func body(context: PublishingContext) -> [any PageElement] {
         NavigationBar(logo: Text("Cool Dev").font(.title1)) {
-            Link("Cool Stuff Here", target: CoolStuff())
+            Link("Posts", target: Home())
+            
+            Link("Projects", target: CoolStuff())
             
             Link("About", target: About())
 
