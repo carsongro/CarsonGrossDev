@@ -1,5 +1,5 @@
 //
-//  CoolStuff.swift
+//  Projects.swift
 //
 //
 //  Created by Carson Gross on 4/9/24.
@@ -8,11 +8,11 @@
 import Foundation
 import Ignite
 
-struct CoolStuff: StaticPage {
-    var title = "Cool Stuff"
+struct Projects: StaticPage {
+    var title = "Projects"
 
     func body(context: PublishingContext) -> [BlockElement] {
-        Text("Here are some fun projects I've made")
+        Text("Projects")
             .font(.title1)
         
         Text {

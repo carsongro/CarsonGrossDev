@@ -11,7 +11,7 @@ struct MyTheme: Theme {
 
                 page.body
    
-                IgniteFooter()
+                CustomIgniteFooter()
             }
             .padding(.vertical, 100)
             

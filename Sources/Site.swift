@@ -29,8 +29,8 @@ struct MySite: Site {
     var theme = MyTheme()
     
     var pages: [any StaticPage] {
-        CoolStuff()
-        About()
+        Projects()
+        Posts()
         Home()
     }
     
