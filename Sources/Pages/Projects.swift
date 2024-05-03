@@ -9,7 +9,7 @@ import Foundation
 import Ignite
 
 struct Projects: StaticPage {
-    var title = "projects"
+    var title = "Projects"
 
     func body(context: PublishingContext) -> [BlockElement] {
         Text("Projects")
