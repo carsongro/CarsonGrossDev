@@ -15,8 +15,6 @@ public struct CustomIgniteFooter: Component {
 
     public func body(context: PublishingContext) -> [any PageElement] {
         Text {
-            Link("App Store", target: "https://apps.apple.com/us/developer/carson-gross/id1702281177")
-            " \u{2022} "
             Link("GitHub", target: "https://github.com/carsongro")
             " \u{2022} "
             Link("Mastodon", target: "https://mastodon.social/@carsongross")

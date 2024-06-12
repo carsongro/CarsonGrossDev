@@ -19,7 +19,6 @@ struct NavBar: Component {
             Link("Projects", target: Projects())
 
             Dropdown("Carson Gross") {
-                Link("App Store", target: "https://apps.apple.com/us/developer/carson-gross/id1702281177")
                 Link("GitHub", target: "https://github.com/carsongro")
                 Link("Mastodon", target: "https://mastodon.social/@carsongross")
                 Link("Twitter", target: "https://twitter.com/carsongrossdev")

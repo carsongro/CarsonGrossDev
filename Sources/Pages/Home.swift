@@ -16,9 +16,7 @@ struct Home: StaticPage {
             .font(.title1)
         
         Text {
-            "Hi! I'm Carson and I build iOS apps and backends usually in Swift (including this website). I've built features for the Ancestry iOS app, launched some of "
-            Link("my own apps ", target: "https://apps.apple.com/us/developer/carson-gross/id1702281177")
-            "on the App Store, and I'm an "
+            "Hi! I'm Carson and I build iOS apps and backends usually in Swift (including this website). I've built features for the Ancestry iOS and I'm an "
             Image(systemName: "apple")
             " Swift Student Challenge 2024 Winner. I'm very passionate about building tools to "
             Link("make full stack iOS development more efficient ", target: "https://github.com/carsongro/Ceto")
